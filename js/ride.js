@@ -4,19 +4,6 @@ var WildRydes = window.WildRydes || {};
 WildRydes.map = WildRydes.map || {};
 let map;
 
-(function rideScopeWrapper($) {
-    var authToken;
-    WildRydes.authToken.then(function setAuthToken(token) {
-        if (token) {
-            authToken = token;
-        } else {
-            window.location.href = '';
-        }
-    }).catch(function handleTokenError(error) {
-        alert(error);
-        window.location.href = '';
-    });
-
     //  requestUnicorn
     //      make the POST request to the server
     function requestUnicorn(pickupLocation) {
