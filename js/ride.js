@@ -7,17 +7,14 @@ let map;
     //  requestUnicorn
     //      make the POST request to the server
     function requestUnicorn(pickupLocation) {
-        $.ajax({
-            method: 'POST',
-            url: _config.api.invokeUrl + '/ride',
-            headers: {
-                Authorization: authToken
-            },
-            data: JSON.stringify({
-                PickupLocation: {
-                    Latitude: pickupLocation.latitude,
-                    Longitude: pickupLocation.longitude
-                }
+    $.ajax({
+        method: 'POST',
+        url: _config.api.invokeUrl + '/ride',
+        data: JSON.stringify({
+            PickupLocation: {
+                Latitude: pickupLocation.latitude,
+                Longitude: pickupLocation.longitude
+            }
             }),
             contentType: 'application/json',
             success: result => completeRequest(result, pickupLocation),
